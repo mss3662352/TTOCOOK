@@ -1,0 +1,1240 @@
+@charset "UTF-8";
+@import "reset.css";
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size : 13px;
+    line-height: 20px;
+    color: #222;
+    font-family: 'Noto Sans KR', sans-serif;
+    user-select: none;
+}
+a{
+    color: #222;
+    text-decoration: none;
+}
+#ebb54b
+#47a834
+img{
+    vertical-align: text-top;
+    border: 0;
+}
+textarea, input, select{
+    outline: none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.wrap{
+    width: 100%;
+    min-width: 1240px;
+    background-color: rgb(245, 245, 245);
+}
+
+.header{
+    height: 180px;
+
+}
+
+.headerIn{
+    position: relative;
+    width: 1200px;
+    height: 180px;
+    margin: 0 auto;
+    background-color: #fff;
+    
+}
+.logo{
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    width: 200px;
+    height: 120px;
+}
+.logo a p{
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/logoa.jpg");
+    text-indent: -10000px;
+}
+.nav{
+    background-color: #ebb54b;
+    position: absolute;
+    top : 140px;
+    width: 100%;
+    font-size: 25px;
+    line-height: 30px;
+    
+}
+.nav ul:first-child{
+    display: flex;
+    justify-content: space-around;
+}
+.nav li{
+    padding: 5px;
+}
+.nav li a{
+	color: #eee;
+}
+.nav li a:hover{
+    color: beige;
+}
+
+.main_nav li:nth-child(4){
+    cursor: pointer;
+}
+.main_nav li:nth-child(4):hover{
+    color: beige;
+
+}
+.nav .commu_nav{
+    display: none;
+}
+
+.nav .commu_navUl{
+    z-index: 2;
+}
+
+.nav .commu_nav ul{
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    margin-right: 18px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color:  #ebb54b;
+    
+}
+.scTable{
+    height: 55px;
+    line-height: 55px;
+}
+.scTr{
+    padding: 20px 0;
+}
+.scBar{
+    background-color: #47a834;
+    border-radius: 10px;
+    border: 1px solid gray;
+    position: absolute;
+    top: 40px;
+    left: 320px;
+    
+}
+.scP{
+    color: #eee;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 55px;
+    margin-right: 10px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.scBar input{
+    width: 350px;
+    height: 40px;
+    line-height: 55px;
+    vertical-align: middle;
+    font-size: 18px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+.scBtn{
+    height: 40px;
+    width: 60px;
+    line-height: 55px;
+    border: 1px solid #eee;
+    margin-right: 7px;
+    border-radius: 20px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.scBtn p{
+    width: 20px;
+    height: 20px;
+    background-image: url(../img/search.jpg);
+    margin-left: 18px;
+    background-repeat: no-repeat;
+    text-indent: -10000px;
+}
+.util{
+    position: absolute;
+    line-height: 50px;
+    top : 45px;
+    right: 20px;
+    font-size: 18px;
+}
+.util ul{
+    display: flex;
+    justify-content:space-around;
+    width: 320px;
+    background-color: #47a834;
+    border: 1px solid gray;
+    border-radius: 8px;
+}
+.util li{
+    margin: 0 5px;   
+}
+.util li a{
+    color: #eee;
+    font-weight: 500;
+}
+.util li a:hover{
+    color: rgb(215, 215, 215);
+}
+.container{
+    width: 1200px;
+    margin: 0 auto;
+    background-color: rgb(250, 250, 250);
+}
+h2{
+    font-size: 28px;
+    line-height: 40px;
+    margin-left: 130px;
+    padding-top: 30px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.eventSlide, .recipeSlide{
+    border-bottom: 1px solid gray;
+}
+.eventImg{
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.eventImg .slick-slide{
+    width: 300px;
+    height: 200px;
+    padding-left: 45px;
+    box-sizing: border-box;
+}
+.eventImg_pager{
+    bottom: -30px;
+    width: 100%;
+    list-style: none;
+    text-align: end;
+    position: absolute;
+    right: 50px;
+    padding: 0;
+}
+.eventImg_pager li{
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    /*margin: 1px;*/
+    padding: 0;
+    cursor: pointer;
+}
+.eventImg_pager li button{
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: 0;
+    background: 0 0;
+}
+.eventImg_pager li button:before{
+    font-size: 2.7rem;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '•';
+    text-align: center;
+    opacity: .75;
+    color: #6D6968;
+}
+.eventImg_pager li.slick-active button:before {
+    opacity: .75;
+    color: #ebb54b;
+}
+.recipeSlide{
+    padding-bottom: 60px;
+}
+.recipeImg{
+    display: flex;
+    justify-content: space-around;
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.recipeImg li{
+    width: 210px;
+    height: 300px;
+    margin: 0 40px;
+}
+.comunity{
+    padding-bottom: 60px;
+}
+.comuBoard{
+    display: flex;
+    justify-content: space-around;
+    width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+.comuBoard li{
+    width: 430px;
+    line-height: 30px;
+    border: 1px solid gray;
+}
+.comuBoard li a{
+    margin-left: 20px;
+}
+h3{
+    font-size: 22px;
+    line-height: 30px;
+    margin-left: 50px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.freeComu p, .cookComu p{
+    text-align: right;
+}
+/* home화면 끝 */
+/* 회원가입 시작 */
+.register-container{
+    width: 100%;
+    padding: 20px 0;
+    font-size: 17px;
+}
+#register-logo{
+    width: 580px;
+    height: 75px;
+    margin: 0 auto;
+    text-align: center;
+}
+#register-logo > img{
+    width: 150px;
+    height: 75px;
+}
+  
+#register-article{
+    width: 640px;
+    height: 100%;
+    margin: 30px auto 100px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 50px 50px;
+    background-color: #fff;
+}
+  
+.register-title{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    margin-bottom: 40px;
+    color: rgb(58, 58, 58);
+}
+  
+.register-subtitle{
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+    color: rgb(58, 58, 58);
+    margin-bottom: 30px;
+}
+  
+.register-input{
+    margin: 10px 0;
+    height: 40px;
+    width: 100%;
+    display: inline-block;
+}
+.register-input{
+    font-size: 0.8em;
+    width: 100%;
+    border: none;
+    border-bottom: 1.5px solid #cccccc;
+    line-height: 40px;
+    font-weight: bold;
+}
+  
+.register-input:focus{
+    outline: none;
+    border-bottom: 2px solid #ebb54b;
+}
+  
+.register-subtitle{
+    position: relative;
+  }
+  
+.register-util1{
+    position: absolute;
+    right: 3px;
+    top: 10px;
+    bottom: 0;
+}
+  
+#idDuplication, #nickDuplication{
+    font-weight: bold;
+    font-size: 1em;
+    border: none;
+    background-color: unset;
+    cursor: pointer;
+}
+.register-submit{
+    width: 100%;
+    text-align: center;
+}
+#submit {
+    text-align: center;
+    font-weight: bold;
+    border-radius: 7px;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 5px;
+}
+#submit:hover{
+    background-color: rgb(215, 215, 215);
+}
+#userIdN, #userPwN, #userPwCN, #userTelN, #userMailN, #userNickN{
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    line-height: 14px;
+    font-weight: 400;
+}
+/* 회원가입 끝 */
+/* 로그인 마이페이지 시작  */
+.loginCon, .myPageCon{
+    padding-bottom: 300px;
+}
+.loginTab, .myPageTab{
+    margin-top: 150px;
+}
+.pannel_wrap{
+    position: relative;
+    margin-top: -8px;
+}
+.pannel_item{
+    border: 2px solid gray;
+    border-radius: 6px;
+    width: 500px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+.pannel_inner{
+    padding: 20px 30px;
+}
+.pannel_inner #msg{
+	height: 18px;
+    text-align:center;
+    font-size:14px;
+    color:red;
+    margin-bottom: 20px;
+}
+.input_row:first-child{
+    border-radius: 6px 6px 0 0;
+    box-shadow: none;
+}
+
+.input_row{
+    position: relative;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    padding: 14px 17px 13px;
+    box-sizing: border-box;
+    height: 100%;
+    border: 2px solid gray;
+    text-align: left;
+    border-radius:0 0 6px 6px;
+}
+
+.icon_cell{
+    display: table-cell;
+    width: 24px;
+    vertical-align: middle;
+}
+.icon_id{
+    position: absolute;
+    top: 50%;
+    left: 17px;
+    margin-top: -8px;
+    background-image: url(../img/user.jpg);
+    width: 16px;
+    height: 16px;
+}
+.icon_pw{
+    position: absolute;
+    top: 50%;
+    left: 17px;
+    margin-top: -8px;
+    background-image: url(../img/pw.jpg);
+    width: 16px;
+    height: 16px;
+}
+.input_text{
+    display: table-cell;
+    padding-right: 30px;
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    box-sizing: border-box;
+    border: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+.btn_delete{
+    display: none;
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+}
+.icon_delete{
+    display: inline-block;
+    margin: 8px 0 0 8px;
+    background-image: url(../img/close.jpg);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;    
+    
+}
+.blind{
+    position: absolute;
+    clip: rect(0,0,0,0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+.login_keep_wrap{
+    display: block;
+    position: relative;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    padding-right: 90px;
+}
+.keep_check{
+    position: relative;
+    padding-left: 5px;
+}
+.btn_login{
+    display: block;
+    width: 100%;
+    padding: 13px 0 13px;
+    border-radius: 6px;
+    border: 1px solid gray;
+    background-color: #47a834;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.login_test{
+    color: #eee;
+    font-weight: 600;
+    font-size: 22px;
+}
+#pw_line_myPage{
+    margin-bottom: 30px;
+}
+/* 로그인, 마이페이지 끝 */
+/* 레시피보기 시작 */
+
+.view_rcMenu{
+	margin-left: 110px;
+	margin-right: 20px;
+	margin-top: 50px;
+	margin-bottom: 70px;
+	display: flex;
+	font-size: 24px;
+	line-height: 32px;
+    font-weight: 600;
+}
+.view_rcIng{
+	display: flex;
+	margin-left: 20px;
+	font-weight: lighter;
+}
+.view_rcIng li{
+    width: 95px;
+	margin-left: 20px;
+    text-align: center;
+}
+.view_rcIng .on{
+    border-radius: 13px;
+    background-color: #ebb54b;
+}
+.view_rcIng .on a{
+    color: #eee;
+}
+.recipeContainer{
+	margin: 0, auto;
+}
+.recipeList{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.recipeList li{
+	margin: 20px 20px;
+	width: 210px;
+	height: 300px;
+}
+.recipeBox{
+    border: 1px solid gray;
+    border-radius: 5px;
+	width: 210px;
+	height: 300px;
+}
+.recipePic{
+	border-bottom: 1px solid gray;
+    box-sizing: border-box;
+	width: 210px;
+	height: 210px;
+}
+.recipeCon{
+	width: 210px;
+	height: 90px;
+}
+.recipeCon p{
+    margin-left: 5px;
+}
+.page_container{
+	display: flex;
+	justify-content: center;
+}
+.page{
+	width: 30px;
+	height: 30px;
+	border: 1px solid gray;
+	text-align: center;
+	line-height: 30px;
+	margin: 20px 5px;
+}
+.paging-active{
+	width: 30px;
+	height: 30px;
+	border: 1px solid #ebb54b;
+	text-align: center;
+	line-height: 30px;
+	margin: 20px 5px;
+}
+.paging-active a{
+	color: #ebb54b;
+}
+.community{
+    position: relative;
+}
+
+/* 레시피 보기 끝 */
+/* 레시피 컨텐츠 시작*/
+.view_rc_container{
+    padding-bottom: 10px;
+}
+.view_step{
+    margin-top: 100px;
+    padding-bottom: 20px;
+}
+.stepDiv{
+    display: flex;
+    justify-content: space-around;
+    width: 680px;
+    height: 160px;
+    margin: 0 auto; 
+    padding: 10px;
+}
+.stepBox{
+    margin-top: 10px;
+    display: flex;
+    width: 500px;
+    height: 150px;
+}
+.s_num{
+    width: 120px;
+    font-size: 25px;
+    line-height: 25px;
+    
+}
+.s_num span{
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    color: #eee;
+    background-color: #ebb54b;
+    border-radius: 50%;
+    text-align: center;
+}
+.stepP{
+    width: 380px;
+    font-size: 18px;
+}
+.stepImg{
+    border: solid 1px black;
+    width: 160px;
+    height: 160px;
+    
+}
+.good{
+    text-align: center;
+    margin-bottom: 50px;
+    
+}
+.good button{
+    width: 70px;
+    height: 70px;
+    border: 1px solid ;
+    border-radius: 50%;
+    background-color: #47a834;
+    color: #eee;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.good button:hover{
+    color: rgb(245, 245, 245);
+}
+.tagDiv{
+    display: flex;
+    width: 700px;
+    margin: 0 auto;
+    line-height: 30px;
+    margin-bottom: 40px;
+}
+.tagP{
+    background-color: #47a834;
+    color: #eee;
+    padding: 0 3px;
+    font-size: 25px;
+    margin-right: 10px;
+}
+.tagDiv ul{
+    display: flex;
+}
+.tagDiv li{
+    background-color: #ebb54b;
+    padding: 0 3px;
+    font-size: 20px;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+.tagDiv li a:hover{
+    color: #eee;
+}
+.rc_reply{
+    font-size: 26px;
+    margin: 20px 0;
+    margin-left: 250px;
+    margin-bottom: 30px;
+}
+.rc_reply_form{
+    margin-bottom: 40px;
+}
+.rc_reply_table{
+    width: 700px;
+    font-size: 18px;
+    line-height: 25px;
+    margin: 0 auto;
+    text-align: left;
+    border-top: 1px solid gray;
+    box-sizing: border-box;
+    padding: 15px;
+}
+.rc_reply_table:last-child{
+    border-bottom: 1px solid gray;
+}
+.rc_reply_table ul{
+    display: flex;
+}
+.reply_nick{
+    color: #ebb54b;
+    width: 120px;
+    margin-bottom: 20px;
+}
+.reply_date{
+    width: 160px;
+    font-size: 18px;
+    color: gray;
+}
+.reply_report a, .reply_update a, .reply_delete a{
+    color: gray;
+    font-size: 18px;
+    margin-left: 5px;
+}
+.reply_content{
+    padding-left: 20px;
+}
+.rc_reply_input{
+    width: 700px;
+    margin: 0 auto;
+}
+.reply_textareaForm{
+    width: 700px;
+    margin: 0 auto;
+    padding-bottom: 70px;
+}
+.reply_textareaForm ul{
+    display: flex;
+}
+.rc_reply_ta{
+    width: 600px;
+    height: 100px;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 15px;
+    resize: none;
+    box-sizing: border-box;
+}
+.rc_reply_btn{
+    width: 100px;
+    height: 100px;
+}
+/* 레시피 컨텐츠 끝*/
+/* 레시피 만들기 시작 */
+
+.make_rcTab{
+    font-size: 21px;
+    width: 800px;
+    padding: 40px 0;
+    margin: 0 auto;
+}
+.make_rc1{
+    padding-bottom: 20px;
+}
+.make_rc2{
+    padding: 20px 0;
+    border-top: 1px solid gray;
+}
+.make_rcTab td:first-child{
+    width: 120px;
+    padding-left: 20px;
+}
+.make_rcTab input, .make_rcTab select{
+    margin-left: 10px;
+    padding-left: 5px;
+    font-size: 16px;
+    height: 30px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: rgb(235, 235, 235);
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.mainIng{
+    width: 120px;
+}
+
+.introText{
+    position: relative;
+    
+} 
+.introText p{
+    position: absolute;
+}
+.introText textarea{
+    background-color: rgb(235, 235, 235);
+    padding-left: 5px;
+}
+
+#rc_intro{
+    width: 500px;
+    height: 50px;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-family: inherit;
+}
+.subIng{
+    width: 110px;
+    margin-left: 5px;
+}
+.make_rcStep{
+    position: relative;
+}
+.make_rcStep p{
+    position: absolute;
+    top: 10px;
+}
+.make_order{
+    padding-left: 5px;
+    margin-bottom: 10px;
+    width: 500px;
+    height: 100px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-family: inherit;
+    border: 1px solid gray;
+    background-color: rgb(235, 235, 235);
+    resize: none;
+}
+.rcImgD{
+    margin-bottom: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(235, 235, 235);
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.rcImg{
+    display: none;
+}
+.stepBtn{
+    text-align: center;
+    line-height: 40px;
+}
+.stepBtn button{
+    width: 32px;
+    height: 32px;
+    background-color: rgb(235, 235, 235);
+    border: 1px solid gray ;
+    border-radius: 5px;
+}
+.stepBtn button:hover{
+    background-color: rgb(210, 210, 210);
+}
+.preStep{
+    display: none;
+}
+.tag p{
+    margin: 30px 0;
+    
+}
+.tag input{
+    width: 500px;
+}
+.make_rcBtn{
+    text-align: center;
+    padding: 20px 0;
+    margin: 0 auto;
+}
+.make_rcBtn button{
+    width: 200px;
+    height: 60px;
+    border: 1px solid gray;
+    color: gray;
+    background-color: #ebb54b;
+    font-weight: 800;
+    font-family: inherit;
+    border-radius: 10px;  
+    cursor: pointer; 
+}
+.make_rcBtn button span{
+    font-size: 1px;
+}
+.make_rcBtn button:hover{
+    background-color: #47a834;
+    color: #eee;
+}
+
+/* 레시피 만들기 끝 */
+/* 요리게시판리스트 시작*/
+.ck_board p{
+    font-size: 20px;
+    margin: 50px 0;
+    margin-left: 200px; 
+    
+}
+.ck_best{
+    display: flex;
+    position: absolute;
+    top: 40px;
+    right: 150px;
+}
+.ck_best li{
+    margin-left: 5px;
+}
+.ck_best li button{
+	width: 50px;
+    height: 25px;
+    background-color: rgb(235, 235, 235);
+    color: #333;
+    border-radius: 5px;
+    font-weight: 700;
+}
+.ck_best li button:hover{
+	border: 2px solid #47a834;
+}
+.ck_boardTbl{
+    width: 900px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+.ck_list{
+    height: 40px;
+    line-height: 40px;
+    font-size: 17px;
+    background-color: rgb(227, 227, 227);
+}
+.ck_boardTbl .ck_list{
+    border-top: 3px solid gray;
+}
+.ck_boardTbl td:nth-child(1), .ck_boardTbl td:nth-child(5){
+    width: 100px;
+    text-align: center;
+}
+.ck_boardTbl td:nth-child(2){
+    width: 120px;
+    text-align: center;
+}
+.ck_boardTbl td:nth-child(3){
+    width: 370px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.ck_boardTbl td:nth-child(4), 
+.ck_boardTbl td:nth-child(6),
+.ck_boardTbl td:nth-child(7){
+    width: 70px;
+    text-align: center;
+}
+.ck_content{
+    height: 20px;
+    font-size: 14px;
+    line-height: 40px;
+    border-bottom: 1px solid gray;
+}
+
+.ck_scBar{ 
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 30px;
+    
+}
+.ck_input{
+    height: 30px;
+    font-size: 20px;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+.ck_se{
+    height: 30px;
+    font-size: 18px;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+.ck_scBtn, .ck_rsBtn{
+    height: 30px;
+    font-size: 18px;
+}
+.ck_write{
+	position : absolute;
+	right: 150px;
+	bottom: -30px;
+    width: 65px;
+    height: 25px;
+    background-color: rgb(235, 235, 235);
+    color: #333;
+    border-radius: 5px;
+    font-weight: 700;
+}
+.ck_write:hover{
+	border: 2px solid #47a834;
+}
+/* 요리게시판 끝 */
+/* 요리게시판 글 작성 시작*/
+.ck_board{
+	position: relative;
+}
+.ck_boardpan form{
+    margin-top: 70px;
+    font-size: 20px;
+    line-height: 30px;
+    padding-bottom: 80px;
+}
+.ck_boardpanTbl{
+    width: 900px;
+    margin: 0 auto;
+    border-top: 3px solid gray;
+    font-size: 18px;
+}
+
+.ck_boardpanTbl tr:nth-child(1){
+    font-size: 25px;
+    line-height: 30px;
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+    text-align: center;
+}
+
+.ck_boardpanTbl td{
+    border: 1px solid gray;
+    text-align: center;
+    padding: 5px 0;    
+}
+.ck_boardpanTbl tr:nth-child(4) td{
+    vertical-align: top;
+}
+.ck_boardpanTbl tr td:first-child{
+    text-align: center;
+    border-left: none;
+    width: 10%;
+}
+.ck_boardpanTbl tr td:last-child{
+    border-right: none;
+}
+.ck_boardpanTbl input{
+    width: 800px;
+    padding : 5px;
+    font-size: 16px;
+    font-family: inherit;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid gray;
+    
+}
+.ck_boardpanTbl textarea{
+    width: 800px;
+    padding : 5px;
+    font-size: 16px;
+    font-family: inherit;
+    box-sizing: border-box;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    resize: none;
+}
+.ck_boardpanBtn{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 150px;
+}
+.ck_boardpanBtn li{
+    margin-left: 10px;;
+}
+.ck_boardpanBtn li button{
+    width: 50px;
+    height: 30px;
+    background-color: rgb(235, 235, 235);
+    color: #333;
+    border-radius: 5px;
+    font-weight: 700;
+}
+.ck_boardpanBtn li button:hover{
+	border: 2px solid #47a834;
+}
+.no_board{
+	padding: 20px 0;
+	font-size: 20px;
+	line-height: 30px;
+}
+/* 요리게시판 글 작성 끝*/
+/* 요리게시판 보기 */
+.ck_board_read_frm{
+    position: relative;
+    padding-bottom: 150px;
+    font-size: 20px;
+    line-height: 35px;
+}
+.ck_board_read_tbl{
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 100px;
+    border-top: 3px solid gray;
+    
+}
+.ck_board_read_title{
+    background-color: rgb(235, 235, 235);
+    font-size: 22px;
+    line-height: 40px;
+    font-weight: 500;
+}
+.ck_board_read_tbl tr:nth-child(3){
+    text-align: center;
+}
+.ck_board_read_tbl td:first-child{
+    border-left: none;
+}
+.ck_board_read_tbl td:last-child{
+    border-right: none;
+}
+.ck_board_read_tbl td{
+    border: 1px solid gray;
+}
+.ck_board_read_tbl td:nth-child(1){
+    width: 100px;
+    vertical-align: middle;
+    text-align: center;
+    border-right: 1px solid gray;
+}
+.ck_board_read_tbl tr:nth-child(4) td:nth-child(2){
+    padding: 10px 20px;
+}
+.ck_board_read_frm button{
+    cursor: pointer;
+}
+.ck_board_readBtn{
+    position: absolute;
+    margin-top: 10px;
+    right: 150px;
+    display: flex;
+}
+.ck_board_read_ta{
+    resize: none;
+    padding: 20px;
+}
+.ck_board_readBtn li{
+    margin-left: 10px;;
+}
+.ck_board_readBtn li button{
+    width: 50px;
+    height: 30px;
+    background-color: rgb(235, 235, 235);
+    color: #333;
+    border-radius: 5px;
+}
+.ck_board_readBtn li button:hover{
+	border: 2px solid #47a834;
+}
+}
+/* 요리게시판 보기 끝 */
+/* footer */
+.footer{
+    background-color: rgb(245, 245, 245);
+    height: 170px;
+    border-top: 1px solid gray;
+    box-sizing: border-box;
+}
+.footerIn{
+    position: relative;
+    
+    width: 1200px;
+    height: 170px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 20px;
+    padding-top: 10px;
+}
+.footerIn p{
+    margin-left: 80px;
+    margin-top: 10px;
+}
+.ft_logo{
+    position: absolute;
+    width: 200px;
+    height: 120px;
+    top: 15px;
+    right: 100px;
+    background-image: url(../img/logob.jpg);
+    text-indent: -10000px;
+}

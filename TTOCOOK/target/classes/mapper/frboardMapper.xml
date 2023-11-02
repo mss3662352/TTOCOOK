@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ttocook.web.dao.FrBoardMapper">
+	<sql id="searchCondition">
+		<if test="keyword != null and keyword !=''">
+			<choose>
+				<when test='option=="T"'>
+					and frbtitle LIKE '%'||#{keyword}||'%'
+				</when>
+				<when test='option=="W"'>
+					and frbwriter LIKE '%'||#{keyword}||'%'
+				</when>
+				<otherwise>
+					and (frbtitle LIKE '%'||#{keyword}||'%'
+					or frbcon LIKE '%'||#{keyword}||'%')
+				</otherwise>
+			</choose>
+		</if>
+	</sql>
+	<!-- 1. select 게시글 번호에 해당하는 게시글 하나 읽어옴 -->
+	<select id="select" parameterType="int" resultType="FrBoardDto">
+		SELECT frbno, frbwriter, frbtitle, frbcon, frview_cnt, frbdate, frbupdate, frre_cnt, frgood_cnt
+		FROM frboard
+		WHERE frbno = #{frbno}
+	</select>
+	<!-- 2. 전체 게시물 개수-->
+	<select id="count" resultType="int">
+		Select count(*)
+		FROM frboard
+	</select>
+	<!-- 3. 게시글 추가(게시글 번호, 제목, 내용, 작성자) -->
+	<insert id="insert" parameterType="FrBoardDto">
+		INSERT INTO frboard(frbno, frbwriter, frbtitle, frbcon)
+		VALUES (frbno_seq.nextval, #{frbwriter}, #{frbtitle}, #{frbcon})
+		
+	</insert>
+	<!-- 4. 번호에 해당하는 게시글의 내용 변경 -->
+	<update id="update" parameterType="FrBoardDto">
+		UPDATE frboard
+		SET frbtitle=#{frbtitle}, frbcon=#{frbcon}
+		WHERE frbno=#{frbno} and frbwriter=#{frbwriter}
+	</update>
+	<!-- 5. 게시글번호와 작성자가 일치할 때 게시글 삭제 -->
+	<delete id="delete" parameterType="map">
+		DELETE
+		FROM frboard
+		WHERE frbno = #{frbno} AND frbwriter = #{frbwriter}
+	</delete>
+	
+	<!-- 관리자 게시글 삭제 -->
+	<delete id="deleteForAdmin">
+		DELETE
+		FROM frboard
+		WHERE frbno = #{frbno}
+	</delete>
+	
+	<!-- 6. 게시글 전체 삭제 -->
+	<delete id="deleteAll">
+		DELETE FROM frboard
+	</delete>
+	<!-- 7. 게시글 목록, 등록일 기준으로 내림차순. 번호를 기준으로 내림차순 -->
+	<select id="selectAll" resultType="FrBoardDto">
+		SELECT frbno, frbwriter, frbtitle, frbcon, frview_cnt, frbdate, frbupdate, frre_cnt, frgood_cnt
+		FROM frboard
+		ORDER BY frbdate DESC, frbno DESC
+	</select>
+	<!-- 8. 조회시 게시글 조회수 1증가 -->
+	<update id="increaseViewCnt" parameterType="int" >
+		UPDATE frboard
+		SET frview_cnt = frview_cnt + 1
+		WHERE frbno=#{frbno}
+	</update>
+	<!-- 9. 페이징처리 -->
+	<select id="selectPage" parameterType="map" resultType="FrBoardDto">
+		SELECT *
+		FROM(SELECT ROWNUM rNum, A.*
+				FROM (SELECT frbno, frbtitle, frbcon, frbwriter, frview_cnt, frre_cnt, frgood_cnt, frbdate, frbupdate
+						FROM frboard
+						ORDER BY frbdate DESC, frbno DESC) A
+				)
+		WHERE rNUM between ((NVL(#{page}, 0)-1) * #{pageSize} + 1) and (NVL(#{page}, 0) * #{pageSize})
+		ORDER BY frbdate DESC, frbno DESC
+	</select>
+	<!-- 10. 검색 결과 출력 -->
+	<select id="selectSearchPage" parameterType="SearchCondition" resultType="FrBoardDto">
+		SELECT *
+		FROM(SELECT ROWNUM rNum, A.*
+				FROM (SELECT frbno, frbtitle, frbcon, frbwriter, frview_cnt, frre_cnt, frgood_cnt, frbdate, frbupdate
+						FROM frboard
+						where 1=1
+							<include refid="searchCondition"/>
+							
+						ORDER BY frbdate DESC, frbno DESC) A
+				)
+		WHERE rNUM between ((NVL(#{page}, 0)-1) * #{pageSize} + 1) and (NVL(#{page}, 0) * #{pageSize})
+		ORDER BY frbdate DESC, frbno DESC
+	</select>
+	<!-- 11. 검색 결과 개수 확인 -->
+	<select id="searchResultCnt" parameterType="SearchCondition" resultType="int">
+		SELECT count(*)
+		FROM frboard
+		where 1=1
+		<include refid="searchCondition"/>
+	</select>
+</mapper>

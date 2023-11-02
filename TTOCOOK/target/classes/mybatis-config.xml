@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-config.dtd">
+	
+<configuration>
+<!-- 	<properties resource ="db.properties"/> -->
+	<typeAliases>
+		<typeAlias alias="BoardDto" type="com.ttocook.web.domain.BoardDto"/>
+		<typeAlias alias="FrBoardDto" type="com.ttocook.web.domain.FrBoardDto"/>
+		<typeAlias alias="MemberDto" type="com.ttocook.web.domain.MemberDto"/>
+		<typeAlias alias="RecipeDto" type="com.ttocook.web.domain.RecipeDto"/>
+		<typeAlias alias="RcContentDto" type="com.ttocook.web.domain.RcContentDto"/>
+		<typeAlias alias="SearchCondition" type="com.ttocook.web.domain.SearchCondition"/>
+	</typeAliases>
+</configuration>

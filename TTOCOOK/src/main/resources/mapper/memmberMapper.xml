@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ttocook.web.dao.MemberMapper">
+	<select id="select" parameterType="String" resultType="MemberDto">
+		select id, pw, tel, email, nickname, reg_date 
+		from member
+		where id = #{id}
+	</select>
+	<insert id="insert" parameterType="MemberDto">
+		insert into member(id, pw, tel, email, nickname, reg_date)
+		values (#{id}, #{pw}, #{tel}, #{email}, #{nickname}, SYSDATE)
+	</insert>
+	<update id="update" parameterType="MemberDto">
+		update member
+		set pw=#{pw}, tel=#{tel}, email=#{email}, nickname=#{nickname}
+		where id = #{id}
+	</update>
+	<delete id="delete" parameterType="map">
+		delete 
+		from member
+		where id = #{id} and pw = #{pw}
+	</delete>
+	<delete id="deleteForAdmin" parameterType="String">
+		delete
+		from member
+		where id = #{id}
+	</delete>
+	<delete id="deleteAll">
+		delete from member
+	</delete>
+	<select id="count" resultType="int">
+		select count(*)
+		from member
+	</select>
+	<select id="idCheck" resultType="int">
+		select count(*)
+		from member
+		where id = #{id}
+	</select>
+	<select id="nickCheck" resultType="int">
+		select count(*)
+		from member
+		where nickname = #{nickname}
+	</select>
+	<select id="login" parameterType="MemberDto" resultType="MemberDto">
+		select id, pw, tel, email, nickname, reg_date 
+		from member
+		where id = #{id} and pw = #{pw}
+	</select>
+</mapper>

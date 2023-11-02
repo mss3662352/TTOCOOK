@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ttocook.web.dao.BoardMapper">
+	<sql id="searchCondition">
+		<if test="keyword != null and keyword !=''">
+			<choose>
+				<when test='option=="T"'>
+					and ckbtitle LIKE '%'||#{keyword}||'%'
+				</when>
+				<when test='option=="W"'>
+					and ckbwriter LIKE '%'||#{keyword}||'%'
+				</when>
+				<otherwise>
+					and (ckbtitle LIKE '%'||#{keyword}||'%'
+					or ckbcon LIKE '%'||#{keyword}||'%')
+				</otherwise>
+			</choose>
+		</if>
+	</sql>
+	<!-- 1. select 게시글 번호에 해당하는 게시글 하나 읽어옴 -->
+	<select id="select" parameterType="int" resultType="BoardDto">
+		SELECT ckbno, ckbwriter, ckbtitle, ckbcon, ckview_cnt, ckbdate, ckbupdate, ckre_cnt, ckgood_cnt
+		FROM ckboard
+		WHERE ckbno = #{ckbno}
+	</select>
+	<!-- 2. 전체 게시물 개수-->
+	<select id="count" resultType="int">
+		Select count(*)
+		FROM ckboard
+	</select>
+	<!-- 3. 게시글 추가(게시글 번호, 제목, 내용, 작성자) -->
+	<insert id="insert" parameterType="BoardDto">
+		INSERT INTO ckboard(ckbno, ckbwriter, ckbtitle, ckbcon)
+		VALUES (ckbno_seq.nextval, #{ckbwriter}, #{ckbtitle}, #{ckbcon})
+		
+	</insert>
+	<!-- 4. 번호에 해당하는 게시글의 내용 변경 -->
+	<update id="update" parameterType="BoardDto">
+		UPDATE ckboard
+		SET ckbtitle=#{ckbtitle}, ckbcon=#{ckbcon}
+		WHERE ckbno=#{ckbno} and ckbwriter=#{ckbwriter}
+	</update>
+	<!-- 5. 게시글번호와 작성자가 일치할 때 게시글 삭제 -->
+	<delete id="delete" parameterType="map">
+		DELETE
+		FROM ckboard
+		WHERE ckbno = #{ckbno} AND ckbwriter = #{ckbwriter}
+	</delete>
+	
+	<!-- 관리자 게시글 삭제 -->
+	<delete id="deleteForAdmin">
+		DELETE
+		FROM ckboard
+		WHERE ckbno = #{ckbno}
+	</delete>
+	
+	<!-- 6. 게시글 전체 삭제 -->
+	<delete id="deleteAll">
+		DELETE FROM ckboard
+	</delete>
+	<!-- 7. 게시글 목록, 등록일 기준으로 내림차순. 번호를 기준으로 내림차순 -->
+	<select id="selectAll" resultType="BoardDto">
+		SELECT ckbno, ckbwriter, ckbtitle, ckbcon, ckview_cnt, ckbdate, ckbupdate, ckre_cnt, ckgood_cnt
+		FROM ckboard
+		ORDER BY ckbdate DESC, ckbno DESC
+	</select>
+	<!-- 8. 조회시 게시글 조회수 1증가 -->
+	<update id="increaseViewCnt" parameterType="int" >
+		UPDATE ckboard
+		SET ckview_cnt = ckview_cnt + 1
+		WHERE ckbno=#{ckbno}
+	</update>
+	<!-- 9. 페이징처리 -->
+	<select id="selectPage" parameterType="map" resultType="BoardDto">
+		SELECT *
+		FROM(SELECT ROWNUM rNum, A.*
+				FROM (SELECT ckbno, ckbtitle, ckbcon, ckbwriter, ckview_cnt, ckre_cnt, ckgood_cnt, ckbdate, ckbupdate
+						FROM ckboard
+						ORDER BY ckbdate DESC, ckbno DESC) A
+				)
+		WHERE rNUM between ((NVL(#{page}, 0)-1) * #{pageSize} + 1) and (NVL(#{page}, 0) * #{pageSize})
+		ORDER BY ckbdate DESC, ckbno DESC
+	</select>
+	<!-- 10. 검색 결과 출력 -->
+	<select id="selectSearchPage" parameterType="SearchCondition" resultType="BoardDto">
+		SELECT *
+		FROM(SELECT ROWNUM rNum, A.*
+				FROM (SELECT ckbno, ckbtitle, ckbcon, ckbwriter, ckview_cnt, ckre_cnt, ckgood_cnt, ckbdate, ckbupdate
+						FROM ckboard
+						where 1=1
+							<include refid="searchCondition"/>
+							
+						ORDER BY ckbdate DESC, ckbno DESC) A
+				)
+		WHERE rNUM between ((NVL(#{page}, 0)-1) * #{pageSize} + 1) and (NVL(#{page}, 0) * #{pageSize})
+		ORDER BY ckbdate DESC, ckbno DESC
+	</select>
+	<!-- 11. 검색 결과 개수 확인 -->
+	<select id="searchResultCnt" parameterType="SearchCondition" resultType="int">
+		SELECT count(*)
+		FROM ckboard
+		where 1=1
+		<include refid="searchCondition"/>
+	</select>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ttocook.web.dao.RcContentMapper">
+	<insert id="insert" parameterType="RcContentDto">
+		insert into(rcconno, rcno, rccon, rcimg, step)
+		values(rcconno_seq.val, #{rcno}, #{rccon}, #{rcimg}, #{step})
+	</insert>
+	<select id="view" parameterType="Map" resultType="RcContentDto">
+		select rcconno, r.rcno, rccon, rcimg, step
+		from recipe r, rccontent c
+		where r.rcno = c.rcno and r.rcno = c.||${rcno} and step = ${step}
+	</select>
+</mapper>

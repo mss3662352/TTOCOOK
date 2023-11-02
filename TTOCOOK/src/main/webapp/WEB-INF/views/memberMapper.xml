@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ttocook.web.dao.MemberMapper">
+	<!-- id를 통해 회원 정보 가져옴-->
+	<select id="memSelect" parameterType="int" resultType="MemberDto">
+		SELECT *
+		FROM member
+		where id = #{id}
+	</select>
+	<!-- 회원정보 만들기 -->
+	<insert id="memRegister" parameterType="MemberDto">
+		INSERT INTO member(id, pw, tel, email, nickname)
+		VALUES(#{id}, #{pw}, #{tel}, #{email}, #{nickname})
+	</insert>
+	<!-- 아이디 중복확인 -->
+	<select id="idCheck">
+		select *
+		FROM member
+		where 
+	</select>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ttocook.web.dao.RecipeMapper">
+	<select id="select" parameterType="int" resultType="RecipeDto">
+		select rcno, rcwriter, rctitle, rcintro, rcmain, rcsub1, rcsub2, rcsub3, rcsub4, rcdate
+		from recipe
+		where rcno = #{rcno}
+	</select>
+	<insert id="insert" parameterType="RecipeDto">
+		insert into recipe(rcno, rcwriter, rctitle, rcintro, rcmain, rcsub1, rcsub2, rcsub3, rcsub4)
+		values(rcno_seq.nextval, #{rcwriter}, #{rctitle}, #{rcintro}, #{rcmain}, #{rcsub1}, #{rcsub2}, #{rcsub3}, #{rcsub4})
+	</insert>
+</mapper>
